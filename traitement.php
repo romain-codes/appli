@@ -1,8 +1,13 @@
 <?php
-    require_once "ProductManager.php";
-    $manager = new ProductManager(); 
+    require "vendor/autoload.php";    
+
+    use App\Manager\ProductManager;
+    use App\Service\MessageService;
+    
     session_start();
-    require_once "MessageService.php";
+
+    $manager = new ProductManager();
+    
 
     if(isset($_GET['action'])){
 
