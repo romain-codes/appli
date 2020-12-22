@@ -4,8 +4,8 @@ namespace App\Service;
 
 abstract class RouterService {
     public static function handleRequest($params) :array {
-        //! APPEL DU CONTROLEUR
-        $class = "Store"; // controleur par défaut
+        //$ APPEL DU CONTROLEUR
+        $class = ucfirst(DEFAULT_CTRL); // controleur par défaut
 
         if (isset($params['ctrl'])) {
             $uri_class = ucfirst($params['ctrl']);
@@ -18,8 +18,8 @@ abstract class RouterService {
         $controller = new $classname();
 
 
-        //! APPEL DE LA METHODE DANS LE CONTROLEUR
-        $method = "indexAction"; // méthode par défaut
+        //$ APPEL DE LA METHODE DANS LE CONTROLEUR
+        $method = DEFAULT_ACTION."Action"; // méthode par défaut
 
         if (isset($params['action'])) {
             $uri_method = $params['action']."Action";
@@ -29,7 +29,7 @@ abstract class RouterService {
         }
 
 
-        //! PRISE EN CHARGE DU PARAMETRE OPTIONNEL $params['id']
+        //$ PRISE EN CHARGE DU PARAMETRE OPTIONNEL $params['id']
         $id = null;
 
         if(isset($params['id'])){
@@ -37,5 +37,14 @@ abstract class RouterService {
         }
 
         return $controller->$method($id);
+    }
+
+
+    public static function redirect($ctrl = null, $action = null, $id = null) {
+        $ctrl = $ctrl ? $ctrl : DEFAULT_CTRL;
+        $action = $action ? $action : DEFAULT_ACTION;
+        
+        header("Location:?ctrl=$ctrl&action=$action&id=$id");
+        return;
     }
 }

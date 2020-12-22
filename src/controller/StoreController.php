@@ -15,7 +15,7 @@ class StoreController {
         $products = $this->manager->getAll();
 
         return [
-            "view" => "list.php",
+            "view" => "store/list.php",
             "data" => $products
         ];
     }
@@ -24,7 +24,7 @@ class StoreController {
         $product = $this->manager->getOnebyId($id);
 
         return [
-            "view" => "voir.php",
+            "view" => "store/voir.php",
             "data" => $product
         ];
     }
