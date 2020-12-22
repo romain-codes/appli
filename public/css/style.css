@@ -1,6 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body{
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+    width: 1080px;
+    margin: auto;
 }
 
 #menu{
@@ -86,6 +95,12 @@ h1 {
     border: 1px solid black;
     padding: 1rem;
     width: 300px;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
 }
 
 @media all and (max-width: 400px){

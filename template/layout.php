@@ -11,12 +11,22 @@
 </head>
 
 <body>
+    <header>
+        <?php
+            include "menu.php";
+        ?>
+    </header>
 
-    <?php
-    include "menu.php";
-    include "messages.php";
-    ?>
+    <main class="container">
+        <?php
+            include "messages.php";
+        ?>
+        <?= $page ?>
+    </main>    
 
+    <footer>
+        <p>Appli E-Shop &copy;</p>
+    </footer>
 </body>
 
 </html>
